@@ -62,7 +62,9 @@ void Player::SetShape(sf::RectangleShape newShape)
 
 void Player::MovePlayer(float dt)
 {
-	if (pos.y <= 600)
+	pos.x = 40;
+
+	if (pos.y <= 560)
 	{
 		speed += gravity * dt;
 		

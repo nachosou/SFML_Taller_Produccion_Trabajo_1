@@ -6,7 +6,6 @@ class Player
 {
 protected:
 	sf::Vector2f pos;
-	sf::Vector2i size;
 	sf::RectangleShape shape;
 	float speed;
 	int score;

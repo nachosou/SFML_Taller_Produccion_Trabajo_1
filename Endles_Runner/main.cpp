@@ -13,6 +13,12 @@ int main()
 
 	Player player;
 
+	float floorPosY = 599;
+	sf::RectangleShape floor;
+	floor.setPosition({ 0, floorPosY });
+	floor.setFillColor(sf::Color::Blue);
+	floor.setSize({ 1366, 10 });
+
 	initPlayer(player);
 
 	sf::Clock clock;
@@ -34,6 +40,7 @@ int main()
 
 		window.clear();
 		window.draw(player.GetShape());
+		window.draw(floor);
 		window.display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -44,7 +51,7 @@ int main()
 		player.MovePlayer(dt);
 		drawPlayer(player);
 
-		cout << player.GetPos().y << endl;
+		cout << player.GetPos().x << endl;
 	}
 
 	return 0;
