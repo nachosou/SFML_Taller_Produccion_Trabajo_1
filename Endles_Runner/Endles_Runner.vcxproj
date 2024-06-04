@@ -180,7 +180,6 @@ xcopy "$(ProjectDir)SFML\x64\Dlls\Dependencies" "$(OutDir)" /i /y /s</Command>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
