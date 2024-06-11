@@ -67,7 +67,6 @@ void Player::MovePlayer(float deltaTime)
 	if (pos.y <= 560)
 	{
 		speed += gravity * deltaTime;
-		
 	}
 	else
 	{
