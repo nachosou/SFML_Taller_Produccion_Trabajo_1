@@ -60,13 +60,13 @@ void Player::SetShape(sf::RectangleShape newShape)
 	this->shape = newShape;
 }
 
-void Player::MovePlayer(float dt)
+void Player::MovePlayer(float deltaTime)
 {
 	pos.x = 40;
 
 	if (pos.y <= 560)
 	{
-		speed += gravity * dt;
+		speed += gravity * deltaTime;
 		
 	}
 	else
@@ -80,10 +80,32 @@ void Player::MovePlayer(float dt)
 		isJumping = true;
 	}
 
-	pos.y += speed * dt;
+	pos.y += speed * deltaTime;
 
 	if (isJumping && speed > 0)
 	{
 		isJumping = false;
 	}
+}
+
+void Player::InitPlayer(Player& player)
+{
+	speed = 150.0f;
+	gravity = 600.0f;
+	jumpForce = -400.0f;
+
+	player.SetSpeed(speed);
+	player.SetGravity(gravity);
+	player.SetJumpForce(jumpForce);
+}
+
+void Player::DrawPlayer(Player& player)
+{
+	sf::RectangleShape playerShape;
+
+	playerShape.setPosition(player.GetPos());
+	playerShape.setFillColor(sf::Color::Red);
+	playerShape.setSize({ 40, 40 });
+
+	player.SetShape(playerShape);
 }

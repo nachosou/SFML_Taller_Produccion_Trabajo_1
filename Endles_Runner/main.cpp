@@ -4,10 +4,7 @@
 
 using namespace std;
 
-void initPlayer(Player& player);
-void drawPlayer(Player& player);
-
-int main()
+void main()
 {
 	sf::RenderWindow window(sf::VideoMode(1366, 768), "Endless Runner");
 
@@ -19,7 +16,7 @@ int main()
 	floor.setFillColor(sf::Color::Blue);
 	floor.setSize({ 1366, 10 });
 
-	initPlayer(player);
+	player.InitPlayer(player);
 
 	sf::Clock clock;
 
@@ -28,7 +25,7 @@ int main()
 		sf::Event event;
 
 		sf::Time time = clock.restart();
-		float dt = time.asSeconds();
+		float deltaTime = time.asSeconds();
 
 		while (window.pollEvent(event))
 		{
@@ -48,34 +45,10 @@ int main()
 			break;
 		}
 
-		player.MovePlayer(dt);
-		drawPlayer(player);
+		player.MovePlayer(deltaTime);
+		player.DrawPlayer(player);
 
 		cout << player.GetPos().x << endl;
 	}
-
-	return 0;
-}
-
-void initPlayer(Player& player)
-{
-	float speed = 150.0f;
-	float gravity = 600.0f;
-	float jumpForce = -400.0f;
-
-	player.SetSpeed(speed);
-	player.SetGravity(gravity);
-	player.SetJumpForce(jumpForce); 
-}
-
-void drawPlayer(Player& player)
-{
-	sf::RectangleShape playerShape;
-
-	playerShape.setPosition(player.GetPos());
-	playerShape.setFillColor(sf::Color::Red);
-	playerShape.setSize({ 40, 40 });
-
-	player.SetShape(playerShape);
 }
 

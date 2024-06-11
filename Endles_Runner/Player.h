@@ -26,7 +26,8 @@ public:
 	void SetJumpForce(float jumpForce);
 	sf::RectangleShape GetShape();
 	void SetShape(sf::RectangleShape newShape);
-
+	
 	void MovePlayer(float dt);
-
+	void InitPlayer(Player& player);
+	void DrawPlayer(Player& player);
 };
